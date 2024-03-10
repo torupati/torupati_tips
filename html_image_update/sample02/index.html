@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        const RELOAD_SPAN = 1000;
+        function reload(){
+          document.getElementById('figure').src ='figure.png' + '?' + Date.now();
+        }
+        setInterval(reload, RELOAD_SPAN);
+      });
+    </script>
+  </head>
+  <body>
+    <img id="figure" src="figure.png">
+
+    <p>Current time: <span id="real-time-text"></span></p>
+
+    <script type="text/javascript">
+  function Time() {
+     var realTime = new Date();
+     var hour = realTime.getHours();
+     var minutes  = realTime.getMinutes();
+     var seconds  = realTime.getSeconds();
+     var text = hour + ":" + minutes + ":" + seconds + Date.now();
+     document.getElementById("real-time-text").innerHTML = realTime.toString();
+  }
+  setInterval('Time()',1000);
+    </script>
+  </body>
+</html>
