@@ -147,3 +147,5 @@ Version of gpsd is also important. Here, using SOCK is documented for gpsd 3.25 
 - [RaspberryPi に GPSレシーバー と RTC をつけてGPS 1PPS対応NTPサーバにする](https://qiita.com/yamakenjp/items/e69eeabdefd9cc960610)
 
 - [GPSD Time Service HOWTO](https://gpsd.gitlab.io/gpsd/gpsd-time-service-howto.html)
+
+- [Configuration examples and accuracy](https://chrony-project.org/examples.html) Many example analysis.
