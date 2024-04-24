@@ -1,4 +1,6 @@
+### raspiraw
 
+Old code. Maybe you should not use this in new environment.
 
 If you ware said "fatal error: bcm_host.h:No such file or directory, run this.
 
@@ -23,4 +25,19 @@ git clone --depth 1
 Build pre-required libraries
 sudo mkdir motion
 sudo cd motion
-sudo apt-get install autoconf automake build-essential pkgconf libtool libzip-dev libjpeg-dev git libavformat-dev libavcodec-dev libavutil-dev﻿
+sudo apt-get install autoconf automake build-essential pkgconf libtool libzip-dev libjpeg-dev git libavformat-dev libavcodec-dev libavutil-dev
+
+### v4l2
+
+Install.
+
+- https://forums.raspberrypi.com/viewtopic.php?t=333791
+
+- Gstreamer
+https://gstreamer.freedesktop.org/documentation/additional/design/mediatype-video-raw.html?gi-language=c
+
+- [IMX290 for read ToF?](https://forums.raspberrypi.com/viewtopic.php?t=348268)
+
+- [Arducam IMX290](https://www.switch-science.com/products/8733)
+
+- [How to serve the Network Time Protocol with chrony](https://ubuntu.com/server/docs/how-to-serve-the-network-time-protocol-with-chrony)
