@@ -35,7 +35,7 @@ with rawpy.imread(os.path.join(path,raw_name_sony)) as raw:
 
   # Get pixel value
   im = raw.raw_image_visible # .astype(np.float32)
-  print(im[0:12, 0:12])
+  print(im[0:4, 0:12])
   #im = np.expand_dims(im, axis=2)
   #img_shape = im.shape
   H = im.shape[0]
@@ -45,7 +45,8 @@ with rawpy.imread(os.path.join(path,raw_name_sony)) as raw:
                     im[0:H:2, 1:W:2],
                     im[1:H:2, 0:W:2],
                     im[1:H:2, 1:W:2],], dtype=np.uint16)
-  print(image[0:3, 0:3, :])
+  for ch in range(4):
+    print(image[0:3, 0:3, ch])
   print(image.max())
 
   fig, ax = plt.subplots(4, 1, sharex=True)
@@ -75,13 +76,13 @@ with rawpy.imread(os.path.join(path,raw_name_sony)) as raw:
   raw_values = {0:[], 1:[], 2:[], 3:[]}
   for k, pt in region_indices.items():
     _im = im[pt[1]:pt[1]+400, pt[0]:pt[0]+400]
-    image = np.stack([_im[0:400:2, 0:400:2],
-                      _im[0:400:2, 1:400:2],
-                      _im[1:400:2, 1:400:2],
-                      _im[1:400:2, 0:400:2]])
+    image = { 0: _im[0:400:2, 0:400:2],
+              1: _im[0:400:2, 1:400:2],
+              2: _im[1:400:2, 1:400:2],
+              3: _im[1:400:2, 0:400:2]}
     for ch in range(4):
       #print(f'channel {ch+1} description {raw.color_desc[ch]}')
-      channel_values = image[:, :, ch]
+      channel_values = image[ch]
       mean_value = np.mean(channel_values)
       std_value = np.std(channel_values)
       max_value = np.max(channel_values)
