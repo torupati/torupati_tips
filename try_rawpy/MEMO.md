@@ -11,3 +11,8 @@ https://letmaik.github.io/rawpy/api/rawpy.RawPy.html
 ### Example of colour
 
 https://ykozw.github.io/post/spectral_upsampling.html
+
+
+### Rawを現像
+
+https://qiita.com/yuntianhe987/items/703cd1cfe4bfe62709a4

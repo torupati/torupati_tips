@@ -1,6 +1,7 @@
 import colour
-
+import matplotlib.pyplot as plt
 data = {
+    400: 0.0300,
     500: 0.0651,
     520: 0.0705,
     540: 0.0772,
@@ -8,6 +9,7 @@ data = {
     580: 0.1128,
     590: 0.1200,
     600: 0.1360,
+    850: 0.2000
 }
 sd = colour.SpectralDistribution(data)
 
@@ -16,7 +18,7 @@ print(f"first 3 elements of the data is {sd[0:2]}")
 print(f"shape of this is {repr(sd.shape)} which includes wavelength {sd.shape.wavelengths}")
 
 illuminant = colour.SDS_ILLUMINANTS["D65"]
-
+print("------")
 
 # this code from 
 # https://colour.readthedocs.io/en/v0.3.7/_modules/colour/colorimetry/blackbody.html#blackbody_spd
@@ -81,5 +83,9 @@ def blackbody_spd(temperature,
                     wavelengths * 1e-9, temperature, c1, c2, n))))
 
 sd5000k = blackbody_spd(5000, sd.shape)
-fig, ax = colour.plotting.plot_multi_sds([sd, sd5000k])
+#fig, ax = colour.plotting.plot_multi_sds([sd, sd5000k])
+plt.figure(facecolor="yellow")
+fig, ax = colour.plotting.plot_single_sd(sd5000k)
+ax.set_facecolor("gray")
+fig.set_facecolor("pink")
 fig.savefig("hoge2.png")
